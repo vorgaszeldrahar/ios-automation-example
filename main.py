@@ -32,10 +32,10 @@ class ConfigLoader(object):
         return self.app_path
 
 
-class AppleTasksTest(unittest.TestCase):
+class AppleCalAppTest(unittest.TestCase):
     """ This is the base class from which all other tests inherit """
     def setUp(self):
-        super(AppleTasksTest, self).setUp()
+        super(AppleCalAppTest, self).setUp()
         config_loader = ConfigLoader()
         app_path = config_loader.get_app_path()
 
@@ -48,11 +48,11 @@ class AppleTasksTest(unittest.TestCase):
         self.credentials = config_loader.get_credentials()
 
     def tearDown(self):
-        super(AppleTasksTest, self).tearDown()
+        super(AppleCalAppTest, self).tearDown()
         self.driver.quit()
 
 
-class LoginTest(AppleTasksTest):
+class LoginTest(AppleCalAppTest):
 
     def testLogin(self):
         """

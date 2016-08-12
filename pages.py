@@ -1,8 +1,8 @@
 from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
 
 from locators import LoginPageLocators, TodayPageLocators
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 
 
 class Page(object):
@@ -39,23 +39,18 @@ class LoginPage(Page):
 
 
 class TodayPage(Page):
-
     SHORT_WAIT = 5
 
     def sign_out(self):
-        """ Click the X in the upper right hand corner of the app to go back to login screen
-        """
+        """ Click the X in the upper right-hand corner of the app to go back to login screen """
         sign_out_button = self.driver.find_element(*TodayPageLocators.SIGN_OUT_BUTTON)
         TouchAction(self.driver).tap(sign_out_button).perform()
 
     def tap_this_week(self):
+        # TODO
         pass
 
     def wait_for_it(self):
         """ Wait until the application is displaying the Today page """
-        WebDriverWait(self.driver, self.SHORT_WAIT).until(ec.presence_of_element_located(TodayPageLocators.TODAY_BUTTON))
-
-
-
-
-
+        WebDriverWait(self.driver, self.SHORT_WAIT).until(
+            ec.presence_of_element_located(TodayPageLocators.TODAY_BUTTON))
