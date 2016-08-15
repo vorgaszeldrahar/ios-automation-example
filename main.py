@@ -41,7 +41,7 @@ class AppleCalAppTest(unittest.TestCase):
 
         desired_capabilities = {'platformName': 'iOS', 'platformVersion': '9.3',
                                 'deviceName': 'iPhone 6s Plus',
-                                'app': PATH(app_path)}
+                                'app': PATH(app_path), 'fullReset': 'true'}
 
         grid_url = 'http://localhost:4723/wd/hub'
         self.driver = webdriver.Remote(grid_url, desired_capabilities)
